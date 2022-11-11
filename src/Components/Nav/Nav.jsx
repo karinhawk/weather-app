@@ -1,9 +1,15 @@
+import Button from "../Button/Button"
+import Search from "../Search/Search"
 import "./Nav.scss"
 
-const Nav = ({fetchData, localWeather}) => {
+const Nav = ({fetchData, localWeather, weatherData, captureInput, searchForm}) => {
   return (
     <div className="nav">
-      <button onClick={() => fetchData(localWeather)}>Local Weather</button>
+     {weatherData.location != undefined && <div className="nav__options">
+     <Button fetchData={fetchData} localWeather={localWeather}/>
+      <Search captureInput={captureInput} searchForm={searchForm}/>
+      </div>
+  }
     </div>
   )
 }

@@ -1,7 +1,9 @@
 import './App.scss';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import WeatherDisplay from './Containers/WeatherDisplay/WeatherDisplay';
 import Nav from './Components/Nav/Nav';
+import Search from './Components/Search/Search';
+import Button from './Components/Button/Button';
 
 
 function App() {
@@ -9,8 +11,8 @@ function App() {
   const [latitude, setLatitude] = useState();
   const [longitude, setLongitude] = useState();
   const [weatherData, setWeatherData] = useState({});
-  const [pending, setPending] = useState(true);
-  const [local, setLocal] = useState(true)
+  const [searchTerm, setSearchTerm] = useState("")
+  const searchForm = useRef(null);
 
   const findLocation = () => {
 
@@ -24,7 +26,7 @@ function App() {
       console.log("no");
     }
   navigator.geolocation.getCurrentPosition(success, error)
-  fetchData(localWeather);
+  // fetchData(localWeather);
 }
 
 useEffect(() => {
@@ -34,27 +36,44 @@ useEffect(() => {
 }, [])
 
 const localWeather = `http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API_KEY}&q=${latitude}, ${longitude}&aqi=no`;
-console.log(localWeather);
+
+
 const fetchData = async (url) => {
   try {
     const response = await fetch(url);
     const data = await response.json();
     setWeatherData(data);
-    setPending(false)
     console.log(weatherData);
+    if(url === localWeather){
+    }
   } catch (error) {
-    console.log(error);
+    alert("That place doesn't seem to exist! Try checking your spelling.")
   }
 }
 
 console.log(weatherData);
 
+const captureInput = (e) => {
+  e.preventDefault()
+    setSearchTerm(searchForm.current.value);
+    console.log(searchTerm);
+    const chosenPlace = `http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API_KEY}&q=${searchTerm}&aqi=no`
+    console.log(chosenPlace);
+    fetchData(chosenPlace)
+}
+
 
   return (
-    <div className="App">
-      <Nav fetchData={fetchData} localWeather={localWeather}/>
-      {pending && <div className='loading'>Loading...</div>}
+    <div className="app">
+      <Nav fetchData={fetchData} localWeather={localWeather} weatherData={weatherData} captureInput={captureInput} searchForm={searchForm}/>
+      <div className='main'>
+      {weatherData.location == undefined && <div className='loading'>
+        <h2 className='loading__text'>Choose Location</h2>
+        <Button fetchData={fetchData} localWeather={localWeather}/>
+        <Search captureInput={captureInput} searchForm={searchForm}/>
+        </div>}
       {weatherData.location != undefined && <WeatherDisplay weatherData={weatherData}/>}
+      </div>
     </div>
   );
 }
