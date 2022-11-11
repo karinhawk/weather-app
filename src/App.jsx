@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { useEffect, useState } from 'react';
 import WeatherDisplay from './Containers/WeatherDisplay/WeatherDisplay';
 import Nav from './Components/Nav/Nav';
@@ -24,13 +24,14 @@ function App() {
       console.log("no");
     }
   navigator.geolocation.getCurrentPosition(success, error)
+  fetchData(localWeather);
 }
 
 useEffect(() => {
     setTimeout(function(){
-  findLocation()
+      findLocation()
     }, 1000)
-}, [weatherData]);
+}, [])
 
 const localWeather = `http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API_KEY}&q=${latitude}, ${longitude}&aqi=no`;
 console.log(localWeather);
@@ -46,20 +47,14 @@ const fetchData = async (url) => {
   }
 }
 
-const toggleView = () => {
-  setLocal(!local)
-  if(local){
-    fetchData(localWeather)
-  }else {
-    fetchData(localWeather)
-  }
-}
+console.log(weatherData);
+
 
   return (
     <div className="App">
-      <Nav toggleView={toggleView}/>
+      <Nav fetchData={fetchData} localWeather={localWeather}/>
       {pending && <div className='loading'>Loading...</div>}
-      {/* {weatherData != undefined && <WeatherDisplay weatherData={weatherData}/>} */}
+      {weatherData.location != undefined && <WeatherDisplay weatherData={weatherData}/>}
     </div>
   );
 }

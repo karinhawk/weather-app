@@ -1,7 +1,9 @@
 .display {
+    height: 60vh;
     width: 90vw;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    margin: auto;
 }

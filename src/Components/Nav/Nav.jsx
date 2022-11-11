@@ -1,10 +1,9 @@
 import "./Nav.scss"
 
-const Nav = (toggleView) => {
+const Nav = ({fetchData, localWeather}) => {
   return (
     <div className="nav">
-        <button onClick={toggleView}>Local Weather</button>
-        <button onClick={toggleView}>Choose Location</button>
+      <button onClick={() => fetchData(localWeather)}>Local Weather</button>
     </div>
   )
 }
