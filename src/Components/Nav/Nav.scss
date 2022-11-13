@@ -2,10 +2,23 @@
     height: 10vh;
     border-bottom: 1px solid rgb(212, 211, 211);
 
+    &__bar {
+        height: 10vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     &__options {
         height: 10vh;
+        width: 85vw;
         display: flex;
         justify-content: space-around;
         align-items: center;
     }
+    
+   &__menu {
+    margin-left: 1rem;
+   }
+    
 }

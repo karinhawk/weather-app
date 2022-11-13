@@ -35,7 +35,7 @@ useEffect(() => {
     }, 1000)
 }, [])
 
-const localWeather = `http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API_KEY}&q=${latitude}, ${longitude}&aqi=no`;
+const localWeather = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${latitude}, ${longitude}&days=7&aqi=no`;
 
 
 const fetchData = async (url) => {
@@ -44,8 +44,6 @@ const fetchData = async (url) => {
     const data = await response.json();
     setWeatherData(data);
     console.log(weatherData);
-    if(url === localWeather){
-    }
   } catch (error) {
     alert("That place doesn't seem to exist! Try checking your spelling.")
   }
@@ -57,7 +55,7 @@ const captureInput = (e) => {
   e.preventDefault()
     setSearchTerm(searchForm.current.value);
     console.log(searchTerm);
-    const chosenPlace = `http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API_KEY}&q=${searchTerm}&aqi=no`
+    const chosenPlace = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${searchTerm}&days=7&aqi=no`
     console.log(chosenPlace);
     fetchData(chosenPlace)
 }

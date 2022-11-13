@@ -1,0 +1,11 @@
+.forecast {
+    width: 80vw;
+    display: flex;
+    justify-content: start;
+    overflow: scroll;
+
+    &__day {
+        width: 40vw;
+        margin: 1rem;
+    }
+}
