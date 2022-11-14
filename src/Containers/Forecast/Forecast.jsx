@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Forecast.scss"
 
 const Forecast = ({ forecast }) => {
@@ -24,7 +25,9 @@ const Forecast = ({ forecast }) => {
                             <h2 className="forecast__day__weekday">{dayOfWeek}</h2>
                             <h3 className="forecast__day__temp">{day.day.avgtemp_c} °C</h3>
                             <img className="forecast__day__icon" src={day.day.condition.icon} />
+                            <Link to={`/forecast/${dayOfWeek}`} state={hourArr}>
                             <h3 className="forecast__day__hourly">Hourly forecast</h3>
+                            </Link>
                         </div>
                         {dayForecast && <div className="forecast__hours">
                             {hourArr.map((hour) => {

@@ -1,9 +1,11 @@
 import './App.scss';
 import { useEffect, useState, useRef } from 'react';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import WeatherDisplay from './Containers/WeatherDisplay/WeatherDisplay';
 import Nav from './Components/Nav/Nav';
 import Search from './Components/Search/Search';
 import Button from './Components/Button/Button';
+import Hourly from './Containers/Hourly/Hourly';
 
 
 function App() {
@@ -59,6 +61,7 @@ const captureInput = (e) => {
 
 
   return (
+    <Router>
     <div className="app">
       <Nav fetchData={fetchData} localWeather={localWeather} weatherData={weatherData} captureInput={captureInput} searchForm={searchForm}/>
       <div className='main'>
@@ -67,9 +70,13 @@ const captureInput = (e) => {
         <Button fetchData={fetchData} localWeather={localWeather}/>
         <Search captureInput={captureInput} searchForm={searchForm}/>
         </div>}
-      {weatherData.location != undefined && <WeatherDisplay weatherData={weatherData}/>}
+        <Routes>
+          <Route path='forecast/:dayOfWeek' element={<Hourly />}/>
+          <Route path='/' element={weatherData.location != undefined && <WeatherDisplay weatherData={weatherData}/>}/>
+      </Routes>
       </div>
     </div>
+    </Router>
   );
 }
 

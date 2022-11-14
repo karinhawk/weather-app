@@ -1,0 +1,16 @@
+.hourly {
+    height: 45vh;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    overflow: scroll;
+    &__hour {
+        width: 30vw;
+        margin: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
