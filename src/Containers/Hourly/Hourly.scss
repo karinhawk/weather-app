@@ -1,16 +1,76 @@
+.hour-page {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    &__navigate {
+        display: flex;
+        align-items: center;
+
+        &__arrow {
+            height: 2rem;
+            margin-right: 1rem;
+        }
+        &__button {
+            width: fit-content;
+            text-align: center;
+            border: none;
+            background: none;
+            border-bottom: 1px solid grey;
+            color: white;
+            
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    
+
+    &__heading {
+        font-size: 1.8rem;
+    }
+
+}
+
 .hourly {
-    height: 45vh;
+    height: 50vh;
     width: 80vw;
     display: flex;
     flex-direction: row;
     justify-content: start;
+    align-items: center;
     overflow: scroll;
     &__hour {
+        height: 25vh;
         width: 30vw;
         margin: 1rem;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
+    }
+    &__current {
+        height: 32vh;
+        width: 30vw;
+        margin: 1rem;
+        margin-bottom: 4.8rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__arrow {
+        height: 3rem;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .hourly {
+
+        &__current {
+            height: 30.6vh;
+            margin-bottom: 5.8rem;
+        }
     }
 }

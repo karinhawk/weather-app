@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Forecast.scss"
 
-const Forecast = ({ forecast }) => {
+const Forecast = ({ forecast, location }) => {
 
     const [dayForecast, setDayForecast] = useState(false);
 

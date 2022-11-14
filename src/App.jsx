@@ -27,7 +27,6 @@ function App() {
       console.log("no");
     }
   navigator.geolocation.getCurrentPosition(success, error)
-  // fetchData(localWeather);
 }
 
 useEffect(() => {
@@ -46,7 +45,7 @@ const fetchData = async (url) => {
     setWeatherData(data);
     console.log(weatherData);
   } catch (error) {
-    alert("That place doesn't seem to exist! Try checking your spelling.")
+    window.alert("That place doesn't seem to exist! Try checking your spelling.")
   }
 }
 
@@ -59,6 +58,17 @@ const captureInput = (e) => {
     fetchData(chosenPlace)
 }
 
+const currentHour = new Date().getHours();
+let greeting = "Good Morning!";
+
+if (currentHour >= 12) {
+  greeting = "Good Afternoon!";
+}
+
+if (currentHour >= 18) {
+  greeting = "Good Evening!";
+}
+
 
   return (
     <Router>
@@ -66,12 +76,13 @@ const captureInput = (e) => {
       <Nav fetchData={fetchData} localWeather={localWeather} weatherData={weatherData} captureInput={captureInput} searchForm={searchForm}/>
       <div className='main'>
       {weatherData.location == undefined && <div className='loading'>
+        <h2>{greeting}</h2>
         <h2 className='loading__text'>Choose Location</h2>
         <Button fetchData={fetchData} localWeather={localWeather}/>
         <Search captureInput={captureInput} searchForm={searchForm}/>
         </div>}
         <Routes>
-          <Route path='forecast/:dayOfWeek' element={<Hourly />}/>
+          <Route path='forecast/:dayOfWeek' element={<Hourly place={weatherData.location}/>}/>
           <Route path='/' element={weatherData.location != undefined && <WeatherDisplay weatherData={weatherData}/>}/>
       </Routes>
       </div>
