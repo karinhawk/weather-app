@@ -11,7 +11,6 @@ function App() {
   const [latitude, setLatitude] = useState();
   const [longitude, setLongitude] = useState();
   const [weatherData, setWeatherData] = useState({});
-  const [searchTerm, setSearchTerm] = useState("")
   const searchForm = useRef(null);
 
   const findLocation = () => {
@@ -53,9 +52,7 @@ console.log(weatherData);
 
 const captureInput = (e) => {
   e.preventDefault()
-    setSearchTerm(searchForm.current.value);
-    console.log(searchTerm);
-    const chosenPlace = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${searchTerm}&days=7&aqi=no`
+    const chosenPlace = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${searchForm.current.value}&days=7&aqi=no`
     console.log(chosenPlace);
     fetchData(chosenPlace)
 }

@@ -1,11 +1,44 @@
 .forecast {
+    height: 45vh;
     width: 80vw;
     display: flex;
     justify-content: start;
     overflow: scroll;
 
     &__day {
-        width: 40vw;
+        width: 30vw;
         margin: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &__weekday {
+            font-size: 1rem;
+        }
+        &__temp {
+            font-size: 1rem;
+        }
+        &__icon {
+
+        }
+        &__hourly {
+            font-size: 0.6rem;
+            text-align: center;
+            border-bottom: 1px solid grey;
+        }
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .forecast {
+        width: 95vw;
+        overflow: auto;
+        justify-content: center;
+
+        &__day {
+            width: 8vw;
+            margin: 1.5rem;
+        }
     }
 }
