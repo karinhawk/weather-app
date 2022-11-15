@@ -38,7 +38,7 @@ function App() {
     }, 1000)
   }, [])
 
-  const localWeather = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${latitude}, ${longitude}&days=7&aqi=no`;
+  const localWeather = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${latitude}, ${longitude}&days=7&aqi=no`;
 
 
   const fetchData = async (url) => {
@@ -56,7 +56,7 @@ function App() {
 
   const captureInput = (e) => {
     e.preventDefault()
-    const chosenPlace = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${searchForm.current.value}&days=7&aqi=no`
+    const chosenPlace = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${searchForm.current.value}&days=7&aqi=no`
     console.log(chosenPlace);
     fetchData(chosenPlace)
     searchForm.current.value = "";
