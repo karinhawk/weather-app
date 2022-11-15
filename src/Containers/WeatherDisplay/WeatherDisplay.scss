@@ -1,5 +1,5 @@
 .display {
-    height: 85vh;
+    height: 80vh;
     width: 90vw;
     display: flex;
     flex-direction: column;
@@ -38,7 +38,7 @@
         }
 
         &__name {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
         }
         &__country {
@@ -56,7 +56,7 @@
             margin-bottom: 1rem;
         }
         &__forecast {
-            padding: 1rem;
+            padding: 0.2rem;
             margin-bottom: 1rem;
             border-bottom: 1px solid grey;
             
@@ -69,9 +69,9 @@
 
 @media screen and (min-width: 720px) {
     .display {
-
+        height: fit-content;
     &__main {
-        height: 40vh;
+        height: 35vh;
         margin-top: 3.5rem;
 
         &__weather {

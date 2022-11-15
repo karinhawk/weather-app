@@ -1,6 +1,7 @@
 .nav {
     height: 10vh;
     border-bottom: 1px solid rgb(212, 211, 211);
+    padding: 0 1rem;
 
     &__bar {
         height: 10vh;
@@ -20,6 +21,10 @@
    &__menu {
     margin-left: 1rem;
     margin-right: 1rem;
+
+    &:hover {
+        cursor: pointer;
+    }
    }
     
 }

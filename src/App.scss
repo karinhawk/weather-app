@@ -12,6 +12,7 @@ body {
     background-color: rgb(28, 28, 30);
     color: rgb(247, 241, 241);
     cursor: default;
+    overflow: overlay;
 }
 
 a {
@@ -21,6 +22,7 @@ a {
 
 .main {
     height: 90vh;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,5 +39,23 @@ a {
 
     &__text {
         font-size: 2rem;
+    }
+}
+
+button {
+    height: 5vh;
+    width: fit-content;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 0.3rem;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    background-color: rgb(58, 108, 106);
+    color: white;
+    font-weight: 500;
+    
+    &:hover {
+        cursor: pointer;
     }
 }

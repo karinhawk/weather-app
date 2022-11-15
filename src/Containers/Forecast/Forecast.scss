@@ -4,6 +4,15 @@
     display: flex;
     justify-content: start;
     overflow: scroll;
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+        height: 0.5rem;
+
+        &-thumb {
+            background: rgb(64, 75, 74);
+        }
+      }
 
     &__day {
         width: 30vw;

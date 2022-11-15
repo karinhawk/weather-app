@@ -16,6 +16,7 @@
             width: fit-content;
             text-align: center;
             border: none;
+            border-radius: 0;
             background: none;
             border-bottom: 1px solid grey;
             color: white;
@@ -41,6 +42,16 @@
     justify-content: start;
     align-items: center;
     overflow: scroll;
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+        height: 0.5rem;
+
+        &-thumb {
+            background: rgb(64, 75, 74);
+        }
+      }
+
     &__hour {
         height: 25vh;
         width: 30vw;
@@ -69,8 +80,8 @@
     .hourly {
 
         &__current {
-            height: 30.6vh;
-            margin-bottom: 5.8rem;
+            height: 30.2vh;
+            margin-bottom: 6.2rem;
         }
     }
 }
