@@ -12,7 +12,8 @@
 
     &__floater {
         position: relative;
-        background-color: rgb(124, 185, 189);
+        background-color: rgb(208, 231, 222);
+        border: 0.5rem solid rgb(147, 189, 193);
         width: 80vw;
         height: 25vh;
         border-radius: 0.5rem;
@@ -26,8 +27,8 @@
         position: relative;
         height: 2rem;
         width: 2rem;
-        top: 5%;
-        left: 120%;
+        top: 10%;
+        left: 125%;
 
         &:hover {
             cursor: pointer;
@@ -35,7 +36,7 @@
     }
 
     &__content {
-        height: 20vh;
+        height: 25vh;
         width: 50vw;
         position: relative;
         left: -10%;
@@ -47,16 +48,30 @@
         color: black;
     }
     &__options {
-        height: 15vh;
+        height: 20vh;
         width: 60vw;
         position: relative;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
 
+        &__questions {
+            height: 12vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
         &__heading {
+            font-size: 1.5rem;
+            font-weight: 500;
+            text-decoration: 3px rgb(60, 115, 171) wavy underline;
+        }
+
+        &__prompt {
             font-size: 1rem;
             font-weight: 500;
+            text-decoration: 2px rgb(60, 115, 171) wavy underline;
         }
         &__div {
             height: 8vh;
@@ -88,6 +103,8 @@
     }
 
     &__cross {
+        height: 2.5rem;
+        width: 2.5rem;
         top: -10%;
         left: 90%;
     }
@@ -96,15 +113,22 @@
         height: 30vh;
         width: 22vw;
         left: 5%;
-        bottom: 10%;
+        bottom: 5%;
     }
     &__options {
-        height: 15vh;
+        height: 25vh;
         width: 60vw;
 
+        &__questions {
+            height: 12vh;
+        }
+
         &__heading {
-            font-size: 1rem;
+            font-size: 2rem;
             font-weight: 500;
+        }
+        &__prompt {
+            font-size: 1.3rem;
         }
         &__div {
             height: 6vh;
