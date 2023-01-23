@@ -10,7 +10,6 @@ const WeatherDisplay = ({weatherData, unit}) => {
   const weatherInfo = weatherData.current;
   const forecast = weatherData.forecast;
   const temperature = weatherInfo[unit];
-  console.log(location.name);
 
   const toggleForecast = () => {
     setShowForecast(!showForecast)

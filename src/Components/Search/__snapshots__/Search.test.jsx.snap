@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render the searchbar 1`] = `
+<DocumentFragment>
+  <form
+    class="form"
+  >
+    <input
+      class="form__searchbox"
+      placeholder="Town... City... Country..."
+      type="text"
+    />
+    <button
+      class="form__button"
+      type="submit"
+    >
+      Go
+    </button>
+  </form>
+</DocumentFragment>
+`;

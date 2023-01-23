@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render the nav 1`] = `
+<DocumentFragment>
+  <div
+    class="nav"
+  >
+    <div
+      class="nav__bar"
+    >
+      <img
+        class="nav__menu"
+        src="menu.png"
+      />
+      <div
+        class="nav__options"
+      >
+        <div>
+          <button
+            class="button"
+          >
+            Local Weather
+          </button>
+        </div>
+        <form
+          class="form"
+        >
+          <input
+            class="form__searchbox"
+            placeholder="Town... City... Country..."
+            type="text"
+          />
+          <button
+            class="form__button"
+            type="submit"
+          >
+            Go
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

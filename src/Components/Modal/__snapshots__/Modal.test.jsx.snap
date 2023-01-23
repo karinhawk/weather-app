@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render the modal when activated 1`] = `
+<DocumentFragment>
+  <div
+    class="modal"
+  >
+    <div
+      class="modal__floater"
+    >
+      <div
+        class="modal__content"
+      >
+        <img
+          alt=""
+          class="modal__cross"
+          src="cross.svg"
+        />
+        <div
+          class="modal__options"
+        >
+          <h1
+            class="modal__options__heading"
+          >
+            OPTIONS
+          </h1>
+          <div
+            class="modal__options__questions"
+          >
+            <h2
+              class="modal__options__prompt"
+            >
+              Choose Celsius or Fahrenheit
+            </h2>
+            <div
+              class="modal__options__div"
+            >
+              <div
+                class="modal__options__div__c"
+              >
+                <input
+                  class="modal__options__div__c__checkbox"
+                  id="c"
+                  type="checkbox"
+                />
+                <label
+                  class="modal__options__div__c__label"
+                  for="toggle_switch"
+                >
+                  Celsius
+                </label>
+              </div>
+              <div
+                class="modal__options__div__f"
+              >
+                <input
+                  class="modal__options__div__f__checkbox"
+                  id="f"
+                  type="checkbox"
+                />
+                <label
+                  class="modal__options__div__f__label"
+                  for="toggle_switch"
+                >
+                  Fahrenheit
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

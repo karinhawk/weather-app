@@ -21,13 +21,11 @@ function App() {
   const findLocation = () => {
 
     const success = (position) => {
-      console.log(position.coords.latitude);
-      console.log(position.coords.longitude);
       setLatitude(position.coords.latitude);
       setLongitude(position.coords.longitude);
     }
     const error = () => {
-      console.log("no");
+      console.log("there seems to be a problem getting your location");
     }
     navigator.geolocation.getCurrentPosition(success, error)
   }
@@ -46,18 +44,14 @@ function App() {
       const response = await fetch(url);
       const data = await response.json();
       setWeatherData(data);
-      console.log(weatherData);
     } catch (error) {
       window.alert("That place doesn't seem to exist! Try checking your spelling.")
     }
   }
 
-  console.log(weatherData);
-
   const captureInput = (e) => {
     e.preventDefault()
     const chosenPlace = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${searchForm.current.value}&days=7&aqi=no`
-    console.log(chosenPlace);
     fetchData(chosenPlace)
     searchForm.current.value = "";
   }
@@ -82,11 +76,9 @@ function App() {
       if(e.target.id === "c"){
         setUnit("temp_c")
         document.getElementById('f').checked = false;
-        console.log(unit);
       } else if (e.target.id === "f") {
         setUnit("temp_f")
         document.getElementById('c').checked = false;
-        console.log(unit);
       }
     }
   }
